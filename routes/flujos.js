@@ -31,4 +31,14 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+router.get('/', async (req, res) => {
+  try {
+    const flujos = await Flujo.find();
+    res.json(flujos);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+
 module.exports = router;
